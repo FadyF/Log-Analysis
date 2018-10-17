@@ -3,7 +3,7 @@ import psycopg2
 DBNAME = "news"
 
 
-def get_posts():
+def run_query(query):
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
