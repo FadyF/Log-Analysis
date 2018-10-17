@@ -1,19 +1,19 @@
-#Log Analysis Project
+# Log Analysis Project
 
 
-##Project Description:
+## Project Description:
 
    Creation of a reporting tool; which ia python code; that prints out reports based on the datat that exist in the database.
    there were three questions given to answer.
 
 
-###These question are:
+### These question are:
 
   * What are the most popular three articles of all time? 
   * Who are the most popular article authors of all time?  
   * On which days did more than 1% of requests lead to errors? 
 
-##Project Installation:
+## Project Installation:
 
   * Vagrant 
   * VirtualBox 
@@ -30,7 +30,7 @@
      
     `psql -d news -f newsdata.sql`
 
-  ####Now the database is loaded.
+  #### Now the database is loaded.
   
   * By running the command: `\d` you can see the contents of the tables
 
