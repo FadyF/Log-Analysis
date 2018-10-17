@@ -18,15 +18,15 @@
   * Vagrant 
   * VirtualBox 
   * vagrant-setup files given in the nanodergree
-  * Database setup <a> [https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip]</a> downloaded and unzipped
-  * unzipped file newsdata.sql file put in vagrant directory
+  * Database setup [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) downloaded and unzipped
+  * unzipped file `newsdata.sql` file put in vagrant directory
   
   
 ## Usage
 
   * To start the Virtual Machine head to vagrant directory
   * Run `vagrant up` to build the virtual machine then run `vagrant ssh` to connect
-  * Head the to newsdata.sql file directory and use the command:
+  * Head the to `newsdata.sql` file directory and use the command:
      
     `psql -d news -f newsdata.sql`
 
