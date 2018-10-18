@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import psycopg2
 
 DBNAME = "news"
@@ -65,13 +67,22 @@ def get_days_with_errors():
 
     # Query String
     query = """
-         select sum day, round((errors.error*1.0) / sum.requests) as perc
-         from (select date_trunc( 'day', time) "day", count(*) as error
-         from log where status != '200 OK' group by day ) as errors
-         join ( select date_trunc('day' ,time) "day", count(*) as requests
-         from log group by day) as sum on sum.day = errors.day
-         where (round((errors.error*1.0) / sum.requests) > 0.01)
-         order by perc desc ;
+         select sum.day,
+          round(((errors.error_requests*1.0) / sum.requests), 3) as perc
+        from (
+          select date_trunc('day', time) "day", count(*) as error_requests
+          from log
+          where status != '200 OK'
+          group by day
+        ) as errors
+        join (
+          select date_trunc('day', time) "day", count(*) as requests
+          from log
+          group by day
+          ) as sum
+        ON sum.day = errors.day
+        where (round(((errors.error_requests*1.0) / sum.requests), 3) > 0.01)
+        order by perc desc ;
     """
 
     # Run Query
